@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questions</title>
+    <link rel="stylesheet" href="style-questions.css">
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</head>
+
+<script>
+    const titulos = [
+        "PGR - PROGRAMA DE \nGERENCIAMENTO DE RISCO",
+        "PGR - PROGRAMA DE \nGERENCIAMENTO DE RISCO",
+        "PGR - PROGRAMA DE \nGERENCIAMENTO DE RISCO",
+        "PGR - PROGRAMA DE \nGERENCIAMENTO DE RISCO",
+        "PGR - PROGRAMA DE \nGERENCIAMENTO DE RISCO",
+        "CONTROLE DE SAÚDE\nOCUPACIONAL",
+        "CONTROLE DE SAÚDE\nOCUPACIONAL",
+        "CONTROLE DE SAÚDE\nOCUPACIONAL",
+        "CONTROLE DE SAÚDE\nOCUPACIONAL",
+        "CONTROLE DE\nCOLABORADORES",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "ÁREAS DE VIVÊNCIA",
+        "INSTALAÇÕES ELÉTRICAS",
+        "INSTALAÇÕES ELÉTRICAS",
+        "INSTALAÇÕES ELÉTRICAS",
+        "INSTALAÇÕES ELÉTRICAS",
+        "ESCAVAÇÃO, FUNDAÇÃO E DESMONTE DE ROCHAS",
+        "ESCAVAÇÃO, FUNDAÇÃO E DESMONTE DE ROCHAS",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "CARPINTARIA",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "ARMAÇÃO",
+        "BETONEIRA",
+        "BETONEIRA",
+        "BETONEIRA",
+        "BETONEIRA",
+        "BETONEIRA",
+        "BETONEIRA",
+        "BETONEIRA",
+        "BETONEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ELEVADOR CREMALHEIRA",
+        "ESCADAS, RAMPAS E PASSARELAS",
+        "ESCADAS, RAMPAS E PASSARELAS",
+        "MEDIDAS DE PREVENÇÃO CONTRA\nQUEDAS DE ALTURA",
+        "MEDIDAS DE PREVENÇÃO CONTRA\nQUEDAS DE ALTURA",
+        "MEDIDAS DE PREVENÇÃO CONTRA\nQUEDAS DE ALTURA",
+        "MEDIDAS DE PREVENÇÃO CONTRA\nQUEDAS DE ALTURA",
+        "MEDIDAS DE PREVENÇÃO CONTRA\nQUEDAS DE ALTURA",
+        "IÇAMENTO DE CARGAS",
+        "IÇAMENTO DE CARGAS",
+        "IÇAMENTO DE CARGAS",
+        "IÇAMENTO DE CARGAS",
+        "ANDAIMES",
+        "ANDAIMES",
+        "SINALIZAÇÃO / ISOLAMENTO",
+        "SINALIZAÇÃO / ISOLAMENTO",
+        "CONTROLE DE EPI's",
+        "CONTROLE DE EPI's"];
+
+    const perguntas = [
+        "1 -  O PGR foi elaborado e implementado na obra?",
+        "2 -  O PGR foi elaborado por um profissional legalmente habilitado?",
+        "3 -  Possui projeto de área de vivência?",
+        "4 -  Possui projeto elétrico de instalações temporárias,sistemas de proteção coletiva e projeto de SPIQ?",
+        "5 -  Possui relação de EPI's e especificações técnicas?",
+        "6 -  A obra possui PCMSO (Programa de gereciamento de risco)?",
+        "7 -  Os ASO'S estão em dias?",
+        "8 -  As Vacinas dos colaboradores está em dias?",
+        "9 -  A planilha de vacinas está atualizada?",
+        "10 -  A planilha de controle de colaboradores internos e externos está atualizada?",
+        "11 -  As instalações sanitárias estão na proporção de 1/20 trabalhadores.",
+        "12 -  As instalações possuem piso e parede impermeáveis,laváveis, com realização de limpeza diária e recepiente para descarte de papéis?",
+        "13 -  O local é ventilado?",
+        "14 -  As instalações sanitárias possuem compartimentos individuais com seu interior indevassável, provido com fecho?",
+        "15 -  Possui mictório com material impermeável e mantido em condições de limpeza e higiene?",
+        "16 -  O lavatório é provido de material para limpeza, enxugo ou secagem das mãos?",
+        "17 -  Os chuveiros estão na proporção de 1/10 trabahadores?",
+        "18 -  O chuveiro é individual com parede impermeável, lavável, tem condições de limpeza e higiene, com portas de acesso, água quente e fria e suporte para sabonete e toalha?",
+        "19 -  Possui vestiário mantido em conservação e limpeza, com paredes impermeável, lavável, ventilado com assentos em materiál lavável e disposição de armários duplos para cada trabalhador?",
+        "20 -  O REFEITÓRIO possui piso e paredes pintados com material impermesvel,lavável, com espaçopara ciruclação, ventilado e com lavatório instalado?",
+        "21 -  O REFEITÓRIO possui assentos e mesas com superfície lavável, água potável, meios para aquecimento de refeições e recipente com tampa para descarte de restos de alimentos.",
+        "22 -  O canteiro de obras está com projeto elétrico atualizado e elaborado por um profissional legalmente habilitado?",
+        "23 -  O quadro de distribuição elétrica éconstituído de material resistente, partes inacessíveis e protegidos ao trabalhador, com acesso desobstruído, identificado e sinalizado?",
+        "24 -  Os ROBOZINHOS possuem dispositivo residual (DR) como medida de seguraça?",
+        "25 -  O canteiro está protegido por Sistema de Proteção Contra Descargas Atmósferica SPDA.",
+        "26 -  O local da escavação possui sinalização de advertência e barreira de isolamento em todo o perímetro?",
+        "27 -  Possui proteção para escavações a partir de 1.25m de profundidade?",
+        "28 -  A carpintaria possui piso resistente, nivelado e antiderrapante?",
+        "29 -  Possui cobertura para proteger contra intempéries e queda de materiais?",
+        "30 -  Operador esta treinado para operação de serra circular?",
+        "31 -  Consta os EPI's obrigatórios para operação?",
+        "32 -  Possui quadro de operadores autorizados para operação?",
+        "33 -  Na carpintaria possui sinalização e proibição?",
+        "34 -  É realizado a limpeza diariamente?",
+        "35 -  O equipamento possui coifa de proteção, dispositivo de partida e parada com botão de emergência, fechamento nas laterais, coletor de serragem, aterramento,extintor de incêndio e checklist diário?",
+        "36 -  A armação possui piso resistente, nivelado e antiderrapante?",
+        "37 -  Possui cobertura para proteger contra intempéries e queda de materiais?",
+        "38 -  O operador esta treinado para operação de policorte?",
+        "39 -  Consta os EPI's obrigatórios para operação?",
+        "40 -  Possui quadro de operadores autorizados para operação?",
+        "41 -  Na armação possui sinalização e proibição?",
+        "42 -  É realizado a limpeza diariamente?",
+        "43 -  O equipamento possui coifa de proteção, dispositivo de partida e parada com botão de emergência,fechamento nas laterais, coletor de serragem, aterramento, extintor de incêndio e checklist diário?",
+        "44 -  O local de instação da betoneira possui piso resistente, nivelado e antiderrapante?",
+        "45 -  Possui cobertura para proteger contra intempéries e queda de materiais?",
+        "46 -  O operador esta treinado para operação de betoneira?",
+        "47 -  Consta os EPI's obrigatórios para operação?",
+        "48 -  Possui quadro de operadores autorizados para operação?",
+        "49 -  Na betoneira possui sinalização e proibição?",
+        "50 -  É realizado a limpeza diariamente?",
+        "51 -  O equipamento possui proteção de partes vivas ifa de proteção, aterramento, extintor de incêndio e checklist diário?",
+        "52 -  O elevador possui nivelador de nível de laje, sensores, cancelas e botoeiras de emergência?",
+        "53 -  O operador esta treinado para operação de cremalheira?",
+        "54 -  Consta os EPI's obrigatórios para operação?",
+        "55 -  Possui sinalização de indicação máxima de pessoas e peso máximo para a operação?",
+        "56 -  No elevador possui sinalização e proibição?",
+        "57 -  É realizado a limpeza diariamente?",
+        "58 -  Possui botoeira em cada pavimento para comunicação no painel interno de controle?",
+        "59 -  As escadas e rampas possuem proteções contra quedas constituido de guarda corpo, corrimão e tela?",
+        "60 -  Possui piso com forração completa e atiderrapante?",
+        "61 -  O canteiro possui proteção coletiva contra queda de trabalhadores e projeção de materiais e objetos em torno da obra elaborado por profissional legamente habilitado?",
+        "62 -  As aberturas do piso estão fechados, com material resistente, travado na estrutura e com proteção contra quedas?",
+        "63 -  Os vãos de acesso as caixas dos elevadores estão com fechamento provisório em toda abertura com material resistente travado ou fixado a estrutura?",
+        "64 -  Na periferia da obra consta a proteção contra quedas de trabalhadores e projeção de materiais a partir do inicio da primeira laje?",
+        "65 -  A obra possui instalado a plataforma primária Bandeijão conforme projeto.",
+        "66 -  O operador e sinaleira estão treinados para realização de atividade?",
+        "67 -  O local para içamento de cargas está isolado e sinalizado?",
+        "68 -  Existe rádio comunicado para execução do içamento?",
+        "69 -  Os sinaleiros utilizam coletes refletivos para execução da atividade?",
+        "70 -  Trabalhadores estão treinados para atividade em altura?",
+        "71 -  O andaime possui sapata para nivelamento, escada de acesso, guardo corpo, forração completa de piso e rodapé?",
+        "72 -  O canteiro de obras está sinalizado indentificando os locais de apoio, saídas de emergência, áreas de riscos existentes, queda de pessoas, material, choque elétrico,obrigatoriedade de EPI, acesso e circulação de veículos, substancias tóxicas, corrosivas, inflamáveis?",
+        "73 -  A obra está isolada, fechada  com tapume com altura mínima de 2 metros?",
+        "74 -  É feito controle interno  de entrega de EPI's?",
+        "75 -  É realizado a orientação do uso adequado dos EPI's?"];
+    let indiceAtual = 0;
+</script>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+
+    <div class="question-container">
+
+        <div class="titulo-p">
+            <p id="titulo">PGR - PROGRAMA DE GERENCIAMENTO DE RISCO</p>
+        </div>
+
+        <div class="question-p">
+            <p id="question">1 - O PGR foi elaborado implementado na obra?</p>
+        </div>
+
+        <div class="options">
+            <input type="radio" name="answer" value="Conforme" id="opcao1">
+            <label class="option" for="opcao1">Conforme</label>
+
+            <input type="radio" name="answer" value="Não Conforme" id="opcao2">
+            <label class="option" for="opcao2">Não Conforme</label>
+
+            <input type="radio" name="answer" value="Não se Aplica" id="opcao3">
+            <label class="option" for="opcao3">Não Se Aplica</label>
+        </div>
+        <script>var respostas = [];</script>
+        <div class="buttons">
+            <button onclick="anteriorPergunta()">Anterior</button>
+            <button onclick="adicionarRespostaEProximaPergunta()">Próxima</button>
+        </div>
+        
+    </div>
+
+    <button class="home" id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+
+
+</body>
+
+</html>

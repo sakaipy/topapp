@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Principal</title>
+
+    <link rel="stylesheet" type="text/css" href="style-inical.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+</head>
+
+<body>
+
+    <header class="logo-container1">
+        <img src="imagens/logo_empresa.png" alt="Logo da Empresa">
+    </header>
+
+
+    <div class="button-container">
+        <button id="botao1">
+            <img class="button-img1" src="imagens/button.png" alt="Ícone 1">
+            <span class="text"><b>Sst</b></span>
+        </button>
+
+        <button id="botao2">
+            <img class="button-img" src="imagens/lupa.png" alt="Ícone 2">
+            <span class="text"><b>Atc</b></span>
+        </button>
+
+        <button id="botao3">
+            <img class="button-img" src="imagens/comercial.png" alt="Ícone 3">
+            <span class="text1"><b>Sgq</b></span>
+        </button>
+    </div>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+        chat-icon="https:&#x2F;&#x2F;encrypted-tbn0.gstatic.com&#x2F;images?q=tbn:ANd9GcRsVN4jUkmct8BnTJJqJJwQM_Z9th5uvU71JEnUor13_Kmi4Q-RpzimkSmqcRckZImOCek&ampusqp=CAU"
+        intent="WELCOME" chat-title="chatTOP" agent-id="8a1a1e41-45de-4406-a770-2bb6cc980fb8"
+        language-code="pt-br">
+    </df-messenger>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

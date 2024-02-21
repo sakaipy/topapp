@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style-login.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+    <h1 class="title"> Saúde e Segurança do Trabalho</h1>
+
+    <div class="login-container">
+        <form class="login-form" onsubmit="return loginUser()">
+            <div class="form-group">
+                <img class="imagem1" src="imagens/do-utilizador.png" alt="">
+                <input type="text" placeholder="Digite seu e-mail" id="username" name="username" autocomplete="email"
+                    required>
+            </div>
+            <div class="form-group">
+                <img class="imagem1" src="imagens/chave.png" alt="">
+                <input type="password" placeholder="Digite sua senha" id="password" name="password"
+                    autocomplete="current-password" required>
+            </div>
+            <div class="form-group-button">
+                <button id="button" class="button-login" type="submit">
+                    Fazer Login
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <button id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

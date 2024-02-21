@@ -1,0 +1,223 @@
+/* Pagina do Login */
+body {
+    max-width: 100%;
+    background-image: url(imagens/background2.jpeg);
+    background-color: rgba(30, 96, 118, 0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "lemon";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    min-width: 100px;
+    min-height: 50px;
+
+}
+
+.logo-container {
+    text-align: center;
+    background-color: #184d5e;
+    width: 100%;
+    box-shadow: 0 2px 5px black;
+
+}
+
+.logo-container img {
+    width: 300px;
+}
+
+.title {
+    font-size: 45px;
+
+    color: white;
+    text-transform: uppercase;
+
+}
+
+
+@font-face {
+    font-family: 'lemon';
+    src: url('LEMONMILK-Regular.otf');
+}
+
+
+.title {
+    padding: 50px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px black;
+
+}
+
+.login-container {
+    font-size: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.316);
+    box-shadow: 0 2px 5px black;
+    text-align: center;
+    line-height: 50px;
+    background-color: transparent;
+    backdrop-filter: blur(7px);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+
+.imagem1 {
+    width: 25px;
+    align-items: center;
+    vertical-align: middle;
+
+}
+
+input {
+    font-size: 20px;
+}
+
+.form-group-button {
+    font-size: 80px;
+}
+
+.button-login {
+    color: white;
+    background-color: #184c5e;
+    text-transform: uppercase;
+    line-height: 50px;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 0 20px;
+    box-shadow: 0 0px 5px black;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+
+
+}
+
+.button-login:hover {
+    background-color: #1e6076;
+    transform: scale(1.1);
+}
+
+.button-login:active {
+    transform: scale(0.99);
+    transition: transform 0.05s ease;
+}
+
+/* Fim página do login */
+
+
+/* inicio da pagiana inicial  */
+
+body {
+    margin: 0;
+
+
+}
+
+.logo-container1 {
+    text-align: center;
+    background-color: #184d5e;
+    width: 100%;
+    box-shadow: 0 2px 5px black;
+}
+
+.logo-container1 img {
+    width: 390px;
+    /* Ajuste conforme necessário */
+}
+
+button#returnButton {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease
+}
+
+button#returnButton img {
+    width: 100px;
+}
+
+button#returnButton:hover {
+    transform: scale(1.1);
+}
+
+button#returnButton:active {
+    transform: scale(0.9);
+    transition: transform 0.05s ease;
+}
+
+.loading {
+    width: 27%;
+    margin-top: 20px;
+    padding: 0;
+    animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@media screen and (max-width: 1020px) {
+    .login-container{
+        margin-top: 100px;
+        border-width: 5px;
+        border-radius: 30px;
+        margin-bottom: 20vh;
+    }
+    
+    .title {
+        font-size: 80px;
+        text-align: center;
+        padding: 20px;
+        margin-top: 5vh;
+    }
+
+    .logo-container img {
+        width: 400px;
+    }
+
+    #returnButton {
+        display: none;
+    }
+
+    body {
+        background-size: 400%;
+    }
+
+    input {
+        font-size: 60px;
+        margin: 30px;
+    }
+
+    #button {
+        width: 40%;
+        height: 80%;
+        padding: 50px 20px;
+        font-size: 40px;
+        border-radius: 20px;
+        border: 1px solid #000;
+    }
+
+    .imagem1, .imagem2{
+        display: none;
+    }
+
+}
