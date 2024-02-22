@@ -90,9 +90,9 @@
  }
 
  .button-proximo:active {
-    transform: scale(0.9);
-    transition: transform 0.05s ease;
-}
+     transform: scale(0.9);
+     transition: transform 0.05s ease;
+ }
 
  #nomeAvaliador::placeholder {
      color: white;
@@ -114,8 +114,8 @@
      transition: transform 0.3s ease
  }
 
- button#returnButton:hover{
-    transform: scale(1.1);
+ button#returnButton:hover {
+     transform: scale(1.1);
  }
 
  button#returnButton img {
@@ -123,40 +123,47 @@
  }
 
  button#returnButton:active {
-    transform: scale(0.9);
-    transition: transform 0.05s ease;
-}
+     transform: scale(0.9);
+     transition: transform 0.05s ease;
+ }
 
-@media screen and (max-width: 1020px) {
-    .form-container{
-        font-size: 40px;
-        line-height: 35px;
-        max-width: 80%;
-        padding: 20px;
-        margin-top: 10vw;
-    }
-    .logo-container img {
-        width: 400px;
-    }
-    body{
-        background-size: 400%;
-    }
-    #returnButton{
-        display:none;
-    }
-    form{
-        padding: 25px;
-        line-height: 95px;
-    }
-    input{
-        font-size: 40px;
-    }
-    select{
-        font-size: 40px;
-    }
-    .button-proximo button{
-        font-size: 50px;
-        padding: 50px;
-        margin-top: 50px;
-    }
-}
+ @media screen and (max-width: 1020px) {
+     .form-container {
+         font-size: 40px;
+         line-height: 35px;
+         max-width: 80%;
+         padding: 20px;
+         margin-top: 10vw;
+     }
+
+     .logo-container img {
+         width: 400px;
+     }
+
+     body {
+         background-size: 400%;
+     }
+
+     #returnButton {
+         display: none;
+     }
+
+     form {
+         padding: 25px;
+         line-height: 95px;
+     }
+
+     input {
+         font-size: 40px;
+     }
+
+     select {
+         font-size: 40px;
+     }
+
+     .button-proximo button {
+         font-size: 50px;
+         padding: 50px;
+         margin-top: 50px;
+     }
+ }
