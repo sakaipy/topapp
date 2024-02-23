@@ -28,6 +28,8 @@ firebase.initializeApp(firebaseConfig);
 
 var respostas = [];
 
+var dadosJaSalvos = false;
+
 function addLoading() {
     const button = document.getElementById('button');
     button.innerHTML = '<img src="imagens/loading.png" class="loading">';
@@ -175,6 +177,9 @@ function atualizarTitulo() {
 }
 
 function salvarRespostas() {
+    if (dadosJaSalvos) {
+        return; // Se os dados já foram salvos, não faça nada
+    }
     var userEmail = localStorage.getItem('userEmail') || 'Usuário não logado';
     var dadosFormulario = JSON.parse(localStorage.getItem('dadosFormulario')) || {};
     var pergunt = JSON.parse(localStorage.getItem('pergunt')) || [];
@@ -220,4 +225,5 @@ function salvarRespostas() {
             alert('Ocorreu um erro. Os dados não foram salvos.');
             window.location.href = "index.html";
         });
+    dadosJaSalvos = true;    
 }
