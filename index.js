@@ -99,6 +99,14 @@ function enviarFormulario() {
     };
 
     localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormulario));
+    window.location.href = "dados.html";
+}
+
+function enviarFormulario2() {
+    var dadosFormulario2 = {
+        qtFuncionario: document.getElementById('qtdFuncionario').value,
+    };
+    localStorage.setItem('dadosFormulario2', JSON.stringify(dadosFormulario2));
     window.location.href = "questions.html";
 }
 
@@ -182,6 +190,7 @@ function salvarRespostas() {
     }
     var userEmail = localStorage.getItem('userEmail') || 'Usuário não logado';
     var dadosFormulario = JSON.parse(localStorage.getItem('dadosFormulario')) || {};
+    var dadosFormulario2 = JSON.parse(localStorage.getItem('dadosFormulario2')) || {};
     var pergunt = JSON.parse(localStorage.getItem('pergunt')) || [];
 
     // Criar um único objeto com todos os dados
@@ -190,6 +199,7 @@ function salvarRespostas() {
         Obra: dadosFormulario.obra || '',
         Data: dadosFormulario.dataAvaliacao || '',
         Avaliador: dadosFormulario.nomeAvaliador || '',
+        QtdFuncionarios: dadosFormulario2.qtFuncionario || '',
         ...pergunt.reduce((obj, resposta, index) => {
             obj['Pergunta ' + (index + 1)] = resposta;
             return obj;

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style-formulario.css">
+    <script src="index.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+</head>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+    <div class="form-container" id="formulario">
+        <form>
+            <label for="qtdFuncionario">Quantidade de funcionários na obra:</label>
+            <input type="number" id="qtdFuncionario" name="qtdFuncionario" placeholder="Digite a quantidade" min="1" step="1"> 
+            <div class="button-proximo">
+                <button type="button" onclick="enviarFormulario2()">Próximo</button>
+            </div>
+        </form>
+    </div>
+
+    <button id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+</body>
+
+</html>
