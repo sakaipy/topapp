@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questions</title>
+    <link rel="stylesheet" href="style-questions-atc4.css">
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</head>
+
+<script>
+    const perguntas3 = [
+        "1 -  Atendimento geral da construtora na fase de negociação da obra.",
+        "2 - Adaptação da empresa às rotinas administrativas da Empresa.",
+        "3 - Facilidade de troca de informação com a TOP Construtora.",
+        "4 - O(s) Engenheiro(s) da obra foi (foram) solicito(s) e cordial(is) no atendimento da sua equipe?",
+        "5 - Os colaboradores foram solícitos e cordiais no atendimento da sua equipe?",
+        "6 - Empenho do(s) Engenheiro(s) da obra  na solução dos problemas.",
+        "7 - A organização física da obra.",
+        "8 -  Organização da área financeira e entrega das notas fiscais.",
+        "9 -  Cumprimento do cronogrma físico acordado.",
+        "10 - Limpeza da Obra.",
+        "11 - Interferências da obra na operação do empreendimento. (Quando aplicável)",
+        "12 - Atendimento às normas de segurança do trabalho."
+    ];
+    let indiceAtual = 0;
+</script>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+
+    <div class="question-container">
+
+        <div class="titulo-p">
+            <p id="titulo">Sobre sua impressao geral a imagem</p>
+        </div>
+
+        <div class="question-p" id="question1-container">
+            <p>1 - Avaliação geral da construtora.</p>
+            <div class="options" id="options1">
+                <input type="radio" name="construtora" value="1" id="construtora1">
+                <label for="construtora1">Ruim</label>
+    
+                <input type="radio" name="construtora" value="2" id="construtora2">
+                <label for="construtora2">Regular</label>
+    
+                <input type="radio" name="construtora" value="3" id="construtora3">
+                <label for="construtora3">Bom</label>
+    
+                <input type="radio" name="construtora" value="4" id="construtora4">
+                <label for="construtora4">Ótimo</label>
+    
+                <input type="radio" name="construtora" value="5" id="construtora5">
+                <label for="construtora5">Excelente</label>
+            </div>
+        </div>
+
+        <div class="question-p" id="question2-container" style="display:none;">
+            <p>2 - Avaliação geral da obra.</p>
+            <div class="options" id="options2">
+                <input type="radio" name="answer" value="1" id="opcao6">
+                <label class="option" for="opcao6">Ruim</label>
+    
+                <input type="radio" name="answer" value="2" id="opcao7">
+                <label class="option" for="opcao7">Regular</label>
+    
+                <input type="radio" name="answer" value="3" id="opcao8">
+                <label class="option" for="opcao8">Bom</label>
+    
+                <input type="radio" name="answer" value="4" id="opcao9">
+                <label class="option" for="opcao9">Otimo</label>
+    
+                <input type="radio" name="answer" value="5" id="opcao10">
+                <label class="option" for="opcao10">Exelente</label>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="prevQuestion" onclick="mudarPergunta(-1)">Anterior</button>
+            <button id="nextQuestion" onclick="verificarEFinalizar()">Próxima</button>
+        </div>
+        
+    </div>
+
+    <button class="home" id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style-formulario2.css">
+    <script src="index.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+</head>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+    <div class="form-container" id="formulario">
+        <form>
+            <label for="nomeCliente">Nome do Cliente:</label>
+            <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Digite o nome do cliente">
+            <label for="obra">Escolha a Obra:</label>
+            <div class="dropdown">
+                <select id="obraatc" name="obra">
+                    <option value="" disabled selected>Selecione a Obra</option>
+                    <option value="BYD -> BSB">BYD -> BSB</option>
+                    <option value="terminal novo mundo">terminal novo mundo</option>
+                    <option value="TOM bueno">TOM bueno</option>
+                    <option value="Mandacaru">Mandacaru</option>
+                    <option value="Vida">Vida</option>
+                    <option value="Aquarela">Aquarela</option>
+                    <option value="Libertá">Libertá</option>
+                    <option value="Braviello">Braviello</option>
+                    <option value="Solar Planalto">Solar Planalto</option>
+                    <option value="Corteva-Comercial">Corteva-Comercial</option>
+                    <option value="Foco-Comercial">Foco-Comercial</option>
+                </select>
+            </div>
+
+            <label for="dataAvaliacao">Data:</label>
+            <input type="date" id="dataAvaliacaoatc" name="dataAvaliacao" placeholder="dd/mm/aaaa"> 
+            <label for="nomeAvaliador">Responsável pela Pesquisa:</label>
+            <input type="text" id="nomeAvaliadoratc" name="nomeAvaliador" placeholder="Digite o nome do avaliador">
+            <div class="button-proximo">
+                <button type="button" onclick="enviarFormulario2()">Próximo</button>
+            </div>
+        </form>
+    </div>
+
+    <button id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+</body>
+
+</html>

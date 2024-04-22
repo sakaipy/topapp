@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questions</title>
+    <link rel="stylesheet" href="style-questions-atc2.css">
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+
+    <div class="question-container">
+
+        <div class="titulo-p">
+            <p id="titulo">B - Você já fez alguma reclamação na construtora?</p>
+        </div>
+
+        <div class="options">
+            <button id="opcaoSim" class="option" onclick="optionSIM()">SIM</button>
+            <button id="opcaoNao" class="option" onclick="optionNAO()">NÃO</button>
+        </div>
+        
+    </div>
+
+    <button class="home" id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+
+
+</body>
+
+</html>

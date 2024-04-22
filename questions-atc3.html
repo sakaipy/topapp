@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questions</title>
+    <link rel="stylesheet" href="style-questions-atc.css">
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</head>
+
+<script>
+    const perguntas3 = [
+        "1 -  Atendimento geral da construtora na fase de negociação da obra.",
+        "2 - Adaptação da empresa às rotinas administrativas da Empresa.",
+        "3 - Facilidade de troca de informação com a TOP Construtora.",
+        "4 - O(s) Engenheiro(s) da obra foi (foram) solicito(s) e cordial(is) no atendimento da sua equipe?",
+        "5 - Os colaboradores foram solícitos e cordiais no atendimento da sua equipe?",
+        "6 - Empenho do(s) Engenheiro(s) da obra  na solução dos problemas.",
+        "7 - A organização física da obra.",
+        "8 -  Organização da área financeira e entrega das notas fiscais.",
+        "9 -  Cumprimento do cronogrma físico acordado.",
+        "10 - Limpeza da Obra.",
+        "11 - Interferências da obra na operação do empreendimento. (Quando aplicável)",
+        "12 - Atendimento às normas de segurança do trabalho."
+    ];
+    let indiceAtual = 0;
+</script>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+
+    <div class="question-container">
+
+
+        <div class="question-p">
+            <p id="question">1 - Atendimento geral da construtora na fase de negociação da obra.</p>
+        </div>
+
+        <div class="options">
+            <input type="radio" name="answer" value="1" id="opcao1">
+            <label class="option" for="opcao1">Ruim</label>
+
+            <input type="radio" name="answer" value="2" id="opcao2">
+            <label class="option" for="opcao2">Regular</label>
+
+            <input type="radio" name="answer" value="3" id="opcao3">
+            <label class="option" for="opcao3">Bom</label>
+
+            <input type="radio" name="answer" value="4" id="opcao4">
+            <label class="option" for="opcao4">Otimo</label>
+
+            <input type="radio" name="answer" value="5" id="opcao5">
+            <label class="option" for="opcao5">Exelente</label>
+
+        </div>
+
+        <div class="buttons">
+            <button id="prevQuestion">Anterior</button>
+            <button onclick="adicionarRespostaEProximaPergunta3()" id="nextQuestion">Próxima</button>
+        </div>
+        
+    </div>
+
+    <button class="home" id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+
+
+</body>
+
+</html>

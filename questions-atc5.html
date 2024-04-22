@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questions</title>
+    <link rel="stylesheet" href="style-questions-atc.css">
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <header class="logo-container">
+        <img src="imagens/logo_empresa.png" alt="logo_empresa">
+    </header>
+
+    <div class="question-container">
+
+        <div class="titulo-p">
+            <p id="titulo">Se você pudesse voltar no tempo</p>
+        </div>
+
+        <div class="question-p">
+            <p id="question">Contrataria da TOP Construtora para executar outra obra?</p>
+        </div>
+
+        <div class="options">
+            <input type="radio" name="answer" value="1" id="opcao1">
+            <label class="option" for="opcao1">Certamente que não</label>
+
+            <input type="radio" name="answer" value="2" id="opcao2">
+            <label class="option" for="opcao2">É provável que não</label>
+
+            <input type="radio" name="answer" value="3" id="opcao3">
+            <label class="option" for="opcao3">Talvez sim, talvez não</label>
+
+            <input type="radio" name="answer" value="4" id="opcao4">
+            <label class="option" for="opcao4">É provavel que sim</label>
+
+            <input type="radio" name="answer" value="5" id="opcao5">
+            <label class="option" for="opcao5">Certamente que sim</label>
+
+        </div>
+
+        <div class="buttons">
+            <button id="prevQuestion">Anterior</button>
+            <button onclick="adicionarRespostaEProximaPergunta4()" id="nextQuestion">Próxima</button>
+        </div>
+        
+    </div>
+
+    <button class="home" id="returnButton" onclick="retornarParaAbaInicial()">
+        <img src="imagens/botao-home.png" alt="Retornar">
+    </button>
+
+
+</body>
+
+</html>

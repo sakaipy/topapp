@@ -1,0 +1,227 @@
+body {
+    max-width: 100%;
+    font-family: 'lemon';
+    margin: 0;
+    background-image: url(imagens/background2.jpeg);
+    background-color: rgba(30, 96, 118, 0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    margin: 0;
+    min-width: 100px;
+    min-height: 50px;
+
+}
+
+@font-face {
+    font-family: 'lemon';
+    src: url('LEMONMILK-Regular.otf');
+}
+
+.titulo-p {
+    background-color: #184d5e;
+    width: auto;
+    border-radius: 25px;
+    line-height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#titulo {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: #baa673;
+    padding: 0 10px;
+}
+
+.logo-container {
+    text-align: center;
+    background-color: #184d5e;
+    width: 100%;
+    box-shadow: 0 2px 5px black;
+}
+
+.logo-container img {
+    width: 300px;
+    max-width: 100%;
+    /* Garante que a imagem não ultrapasse a largura da tela */
+    height: auto;
+}
+
+.question-container {
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: auto;
+    max-height: 20%;
+    max-width: 60%;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.316);
+    box-shadow: 0 2px 5px black;
+    text-align: center;
+    line-height: 30px;
+    background-color: transparent;
+    backdrop-filter: blur(7px);
+
+}
+
+.question-p ,.importance-p{
+    height: auto;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    max-width: 100%;
+}
+
+.options, .importance {
+
+    display: flex;
+    flex-direction: column;
+}
+
+#question {
+    width: 800px;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    max-width: 1000px;
+    display: block;
+    margin-bottom: 20px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #baa673;
+    color: #184d5e;
+}
+
+.importance{
+    padding: 0px;
+}
+
+label {
+    letter-spacing: 2px;
+    box-shadow: 0 2px 5px black;
+    margin: 10px 0;
+    background-color: #184d5e;
+    padding: 10px;
+    cursor: pointer;
+    /* Adicionado para indicar que é clicável */
+    border-radius: 8px;
+}
+
+label:hover {
+    transform: scale(1.01);
+}
+
+label:active {
+    transform: scale(0.99);
+    transition: transform 0.05s ease;
+}
+
+input {
+    display: none;
+    /* Esconde o input padrão */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button {
+    color: white;
+    background-color: #184d5e;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.99);
+    transition: transform 0.05s ease;
+}
+
+button#returnButton {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button#returnButton img {
+    width: 100px;
+}
+
+button#returnButton:active {
+    transform: scale(0.99);
+    transition: transform 0.05s ease;
+}
+
+@media screen and (max-width: 1020px) {
+    body{
+        background-size: 350%;
+    }
+    
+    button#returnButton {
+        display: none;
+    }
+
+    #titulo {
+        font-size: 20px;
+        line-height: 25px;
+        /* Reduz o tamanho da fonte para telas pequenas */
+    }
+
+    .question-container {
+        max-width: 80%;
+        margin-top: 5vw;
+        position: sticky;
+        margin-bottom: 20vh;
+        /* Reduz o tamanho da fonte para telas pequenas */
+    }
+
+    .question-p{
+        font-size: 25px;
+    }
+
+    .logo-container img {
+        width: 150px;
+    }
+
+    .options label,
+    .buttons button {
+        font-size: 25px;
+        /* Reduz o tamanho da fonte dos botões e labels */
+    }
+}
