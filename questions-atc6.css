@@ -30,7 +30,7 @@ body {
 
 .form-container {
     text-transform: uppercase;
-    max-width: 50%;
+    max-width: 55%;
     margin: 15px auto;
     padding: 15px;
     background-color: #f0f0f0;
@@ -38,11 +38,10 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 20px;
     padding: 0px;
-    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.316);
     box-shadow: 0 2px 5px black;
     text-align: center;
-    line-height: 40px;
+    line-height: 20px;
     background-color: transparent;
     backdrop-filter: blur(7px);
 
