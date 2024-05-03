@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ajustarVisibilidade();
 
-    localStorage.setItem('pergunt2', JSON.stringify([]));
 });
 
 var botao1atc = document.getElementById("botao1atc");
@@ -168,62 +167,26 @@ function retornarParaAbaInicial() {
     window.location.href = "index.html";
 }
 
-function enviarFormulario() {
+function irParaDados(){
     var dadosFormulario = {
         obra: document.getElementById('obra').value,
         dataAvaliacao: document.getElementById('dataAvaliacao').value,
         nomeAvaliador: document.getElementById('nomeAvaliador').value
     };
+    localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormulario));
+    window.location.href = "dados.html";
+}
+
+function enviarFormulario() {
+   
     var dadosFormulario2 = {
         qtFuncionario: document.getElementById('qtdFuncionario').value,
     };
 
-    localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormulario));
     localStorage.setItem('dadosFormulario2', JSON.stringify(dadosFormulario2));
-    window.location.href = "dados.html";
+    window.location.href = "questions.html";
 }
 
-function enviarFormulario2() {
-    // Obtem os valores dos campos
-    var nomeCliente = document.getElementById('nomeCliente').value.trim();
-    var obra = document.getElementById('obraatc').value.trim();
-    var dataAvaliacao = document.getElementById('dataAvaliacaoatc').value.trim();
-    var nomeAvaliador = document.getElementById('nomeAvaliadoratc').value.trim();
-
-    // Verifica se algum dos campos está vazio
-    if (nomeCliente === "" || obra === "" || dataAvaliacao === "" || nomeAvaliador === "") {
-        alert("Por favor, preencha todos os campos antes de prosseguir.");
-        return; // Interrompe a execução da função, evitando o redirecionamento
-    }
-
-    // Se todos os campos estiverem preenchidos, armazena os dados e redireciona
-    var dadosFormularioatc = {
-        nomeCliente: nomeCliente,
-        obra: obra,
-        dataAvaliacao: dataAvaliacao,
-        nomeAvaliador: nomeAvaliador
-    };
-
-    localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormularioatc));
-    window.location.href = "questions-atc.html";
-}
-
-function enviarFormulario3() {
-    // Obtem os valores dos campos
-    var opniao = document.getElementById('opniao').value.trim();
-    // Verifica se algum dos campos está vazio
-    if (opniao === "") {
-        var opniao = "não respondido";  // Interrompe a execução da função, evitando o redirecionamento
-    }
-
-    // Se todos os campos estiverem preenchidos, armazena os dados e redireciona
-    var dadosFormularioatc2 = {
-        opniao: opniao
-    };
-
-    localStorage.setItem('dadosFormulario2', JSON.stringify(dadosFormularioatc2));
-    window.location.href = "questions-atc.html";
-}
 
 
 
@@ -279,19 +242,6 @@ function proximaPergunta() {
     }
 }
 
-function proximaPergunta2() {
-    indiceAtual++;
-    if (indiceAtual < perguntas2.length) {
-        console.log(perguntas2[indiceAtual]);
-        document.getElementById("question").textContent = perguntas2[indiceAtual];
-        document.querySelectorAll('input[name="answer"]').forEach(botao => botao.checked = false);
-        document.querySelectorAll('input[name="importante"]').forEach(botao => botao.checked = false);
-    } else {
-        window.location.href = "questions-atc2.html";
-    }
-}
-
-
 
 function adicionarRespostaEProximaPergunta() {
     var respostaSelecionada = obterRespostaUsuario();
@@ -308,50 +258,6 @@ function adicionarRespostaEProximaPergunta() {
     proximaPergunta();
 }
 
-function adicionarRespostaEProximaPergunta2() {
-    var respostaSelecionada = obterRespostaUsuario();
-
-    if (respostaSelecionada === null) {
-        alert("Por favor, selecione uma opção antes de continuar.");
-        return;
-    }
-
-    var pergunt2 = JSON.parse(localStorage.getItem('pergunt2') || '[]');
-    pergunt2.push(respostaSelecionada);
-    localStorage.setItem('pergunt2', JSON.stringify(pergunt2));
-
-    proximaPergunta2();
-}
-
-function adicionarRespostaEProximaPergunta3() {
-    var respostaSelecionada = obterRespostaUsuario();
-
-    if (respostaSelecionada === null) {
-        alert("Por favor, selecione uma opção antes de continuar.");
-        return;
-    }
-
-    var pergunt3 = JSON.parse(localStorage.getItem('pergunt3') || '[]');
-    pergunt3.push(respostaSelecionada);
-    localStorage.setItem('pergunt3', JSON.stringify(pergunt3));
-
-    window.location.href = "questions-atc4.html";
-}
-
-function adicionarRespostaEProximaPergunta4() {
-    var respostaSelecionada = obterRespostaUsuario();
-
-    if (respostaSelecionada === null) {
-        alert("Por favor, selecione uma opção antes de continuar.");
-        return;
-    }
-
-    var pergunt4 = JSON.parse(localStorage.getItem('pergunt4') || '[]');
-    pergunt4.push(respostaSelecionada);
-    localStorage.setItem('pergunt4', JSON.stringify(pergunt4));
-
-    window.location.href = "questions-atc4.html";
-}
 
 
 function anteriorPergunta() {
@@ -439,56 +345,3 @@ function salvarRespostas() {
     dadosJaSalvos = true;
 }
 
-function salvarRespostas2() {
-    if (dadosJaSalvos) {
-        return; // Se os dados já foram salvos, não faça nada
-    }
-    var userEmail = localStorage.getItem('userEmail') || 'Usuário não logado';
-    var dadosFormulario = JSON.parse(localStorage.getItem('dadosFormulario')) || {};
-    var dadosFormulario2 = JSON.parse(localStorage.getItem('dadosFormulario2')) || {};
-    var pergunt = JSON.parse(localStorage.getItem('pergunt')) || [];
-
-    // Criar um único objeto com todos os dados
-    var linhaDados = {
-        Email: userEmail,
-        Obra: dadosFormulario.obra || '',
-        Data: dadosFormulario.dataAvaliacao || '',
-        Avaliador: dadosFormulario.nomeAvaliador || '',
-        QtdFuncionarios: dadosFormulario2.qtFuncionario || '',
-        ...pergunt.reduce((obj, resposta, index) => {
-            obj['Pergunta ' + (index + 1)] = resposta;
-            return obj;
-        }, {})
-    };
-
-    // URL fornecida pelo Sheet Monkey após a configuração
-    var sheetMonkeyUrl = 'https://api.sheetmonkey.io/form/ik4CTXSsTWg5mdM4NAPAwh';
-
-    // Faça uma solicitação POST para o Sheet Monkey com os dados do formulário
-    fetch(sheetMonkeyUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(linhaDados)
-    })
-
-        .then(response => {
-            // Primeiro, verifica o status da resposta
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.text();
-        })
-        .then(text => {
-            console.log('Resposta recebida:', text);
-            alert('Dados salvos com sucesso!');
-            window.location.href = "index.html";
-        })
-        .catch((error) => {
-            console.error('Erro:', error);
-            alert('Ocorreu um erro. Os dados não foram salvos.');
-            window.location.href = "index.html";
-        });
-    dadosJaSalvos = true;
-}
